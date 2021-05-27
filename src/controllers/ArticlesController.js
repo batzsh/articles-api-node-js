@@ -20,7 +20,7 @@ class ArticlesController {
 			};
 		});
 
-    return response.json(serializedArticles);
+		return response.json(serializedArticles);
 	}
 
 	// Show article
@@ -37,8 +37,18 @@ class ArticlesController {
 			return response.status(404).json({ message: 'Article not found.' });
 		}
 
+		const likes = await prisma.like.findMany({
+			where: {
+				article_id: article.id,
+			},
+		});
+
+		const likesCount = likes.length;
+
 		return response.json({
 			...article,
+			likesCount,
+			likes,
 		});
 	}
 
