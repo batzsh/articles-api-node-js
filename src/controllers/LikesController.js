@@ -30,6 +30,24 @@ class LikesController {
 			...like,
 		});
 	}
+
+  // List likes
+  async index(request, response) {
+    const likes = await prisma.like.findMany();
+
+    if (!likes) {
+			return response.status(404).json({ message: 'None likes found' });
+		}
+
+    const serializedLikes = likes.map((like) => {
+      return {
+        id: like.id,
+        article_id: like.article_id,
+      };
+    });
+
+    return response.json(serializedLikes);
+  }
 }
 
 export default LikesController;

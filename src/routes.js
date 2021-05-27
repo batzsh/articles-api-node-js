@@ -19,5 +19,7 @@ routes.get('/articles', articlesController.index);
 // Like Routes
 // Create like
 routes.post('/articles/:id/like', likesController.create);
+// List likes
+routes.get('/likes', likesController.index);
 
 export default routes;
