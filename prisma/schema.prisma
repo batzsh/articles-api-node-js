@@ -10,23 +10,9 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model User {
-  id Int @id @default(autoincrement())
-  name String
-  articles Article[]
-}
-
 model Article {
   id Int @id @default(autoincrement())
   title String
   published Boolean @default(true)
-  author_id Int
-  author User @relation(fields: [author_id], references: [id])
-  likes Like[]
-}
-
-model Like {
-  id Int @id @default(autoincrement())
-  article_id Int
-  article Article @relation(fields: [article_id], references: [id])
+  author String
 }
