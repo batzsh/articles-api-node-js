@@ -15,4 +15,11 @@ model Article {
   title String
   published Boolean @default(true)
   author String
+  likes Like[]
+}
+
+model Like {
+  id Int @id @default(autoincrement())
+  article_id Int
+  article Article @relation(fields: [article_id], references: [id])
 }

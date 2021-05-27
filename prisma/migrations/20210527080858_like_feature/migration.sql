@@ -1,0 +1,6 @@
+-- CreateTable
+CREATE TABLE "Like" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "article_id" INTEGER NOT NULL,
+    FOREIGN KEY ("article_id") REFERENCES "Article" ("id") ON DELETE CASCADE ON UPDATE CASCADE
+);
