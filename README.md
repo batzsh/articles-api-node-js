@@ -20,3 +20,10 @@
 - How can you improve the feature to make it scale to millions of users and perform without issues?
 - A million concurrent users clicking the button at the same time
 - A million concurrent users requesting the article's like count at the same time
+
+## Notes
+* Endpoint `GET /articles/:id` shows a `likesCount` and all `likes` related to that one `article`.
+* Endpoint `POST /articles/:id/like` create a `like` related to that one `article`.
+* Express.js to expose API endpoints to HTTP requests from client-side, SQLite3 to provide database tables and Node.js with TypeScript to server-side application.
+* Authentication could be improved by adding a register & login feature + generating a JWT token to each user.
+* Using Redis to cache all API requests would be a efficient way to prevent issues by scaling to millions of users.
