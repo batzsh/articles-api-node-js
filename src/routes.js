@@ -11,5 +11,7 @@ const articlesController = new ArticlesController();
 routes.post('/articles', articlesController.create);
 // Show article
 routes.get('/articles/:id', articlesController.show);
+// List articles
+routes.get('/articles', articlesController.index);
 
 export default routes;
